@@ -15,5 +15,7 @@ namespace MoviesAPI.Models
         [StringLength(40)]
         [FirstLetterUpperCase]
         public string Name { get; set; }
+
+        public List<MoviesGenres> MoviesGenres { get; set; }
     }
 }

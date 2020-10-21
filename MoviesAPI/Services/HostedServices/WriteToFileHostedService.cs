@@ -24,7 +24,7 @@ namespace MoviesAPI.Services
         public Task StartAsync(CancellationToken cancellationToken)
         {
             WriteToFile("Process Start.");
-            _timer = new Timer(DoWork, null, TimeSpan.Zero, TimeSpan.FromSeconds(5));
+            //_timer = new Timer(DoWork, null, TimeSpan.Zero, TimeSpan.FromSeconds(5));
             return Task.CompletedTask;
         }
 

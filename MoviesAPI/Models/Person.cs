@@ -21,5 +21,7 @@ namespace MoviesAPI.Models
         public DateTime DateOfBirth { get; set; }
 
         public string Picture { get; set; }
+
+        public List<MoviesActors> MoviesActors { get; set; }
     }
 }

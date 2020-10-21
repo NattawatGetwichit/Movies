@@ -22,7 +22,11 @@ namespace MoviesAPI.Services
         private readonly IHttpContextAccessor _httpContext;
         private readonly string containerName = "people";
 
-        public PersonService(AppDBContext context, IMapper mapper, IFileStorageService fileStorageService, IHttpContextAccessor httpContext)
+        public PersonService(
+            AppDBContext context
+            , IMapper mapper
+            , IFileStorageService fileStorageService
+            , IHttpContextAccessor httpContext)
         {
             _context = context;
             _mapper = mapper;
@@ -99,7 +103,12 @@ namespace MoviesAPI.Services
             var response = new ServiceResponse<List<PersonDto>>();
 
             var queryable = _context.People.AsQueryable();
-            await _httpContext.HttpContext.InsertPaginationParametersInResponse(queryable, pagination.RecordsPerPage, queryable.Count(), pagination.Page);
+            await _httpContext.HttpContext
+                .InsertPaginationParametersInResponse(
+                queryable
+                , pagination.RecordsPerPage
+                , queryable.Count()
+                , pagination.Page);
             var people = await queryable.Paginate(pagination).ToListAsync();
 
             List<PersonDto> personDTOs = _mapper.Map<List<PersonDto>>(people);

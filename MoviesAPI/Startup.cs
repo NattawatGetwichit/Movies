@@ -20,6 +20,7 @@ using MoviesAPI.Data;
 using MoviesAPI.Helpers;
 using MoviesAPI.Models;
 using MoviesAPI.Services;
+using MoviesAPI.Services.MoviesService;
 
 namespace MoviesAPI
 {
@@ -64,6 +65,7 @@ namespace MoviesAPI
 
             services.AddScoped<IGenreService, GenreService>();
             services.AddScoped<IPersonService, PersonService>();
+            services.AddScoped<IMovieService, MovieService>();
 
             services.AddTransient<IFileStorageService, InAppStorageService>();
 

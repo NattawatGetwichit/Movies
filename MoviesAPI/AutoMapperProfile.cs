@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MoviesAPI.DTOs;
+using MoviesAPI.DTOs.MovieDTOs;
 using MoviesAPI.Models;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,14 @@ namespace MoviesAPI
             CreateMap<Person, PersonDto>().ReverseMap();
             CreateMap<PersonDtoAdd, Person>()
                 .ForMember(x => x.Picture, options => options.Ignore());
-            CreateMap<PersonDtoUpdate, Person>();
+            CreateMap<PersonDtoUpdate, Person>()
+                .ForMember(x => x.Picture, options => options.Ignore());
+
+            CreateMap<Movie, MovieDto>().ReverseMap();
+            CreateMap<MovieDtoAdd, Movie>()
+                .ForMember(x => x.Poster, options => options.Ignore());
+            CreateMap<MovieDtoUpdate, Movie>()
+                .ForMember(x => x.Poster, options => options.Ignore());
         }
     }
 }

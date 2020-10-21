@@ -28,6 +28,14 @@ namespace MoviesAPI.Controllers
             return Ok(result);
         }
 
+        [HttpGet("pagination")]
+        public async Task<IActionResult> GetPagination([FromQuery] PaginationDto pagination)
+        {
+            var result = await _PersonService.GetAllPeoplePagination(pagination);
+
+            return Ok(result);
+        }
+
         [HttpGet("{id:int}", Name = "getPersonById")]
         public async Task<IActionResult> GetById(int id)
         {

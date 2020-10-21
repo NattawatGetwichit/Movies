@@ -12,6 +12,8 @@ namespace MoviesAPI.Services
     {
         Task<ServiceResponse<List<PersonDto>>> GetAllPeople();
 
+        Task<ServiceResponse<List<PersonDto>>> GetAllPeoplePagination(PaginationDto pagination);
+
         Task<ServiceResponse<PersonDto>> GetPersonById(int id);
 
         Task<ServiceResponse<PersonDto>> AddPerson(PersonDtoAdd newItem);

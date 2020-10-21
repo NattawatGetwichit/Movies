@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using MoviesAPI.Data;
 using MoviesAPI.DTOs;
+using MoviesAPI.Helpers;
 using MoviesAPI.Models;
 using System;
 using System.Collections.Generic;
@@ -17,13 +19,15 @@ namespace MoviesAPI.Services
         private readonly AppDBContext _context;
         private readonly IMapper _mapper;
         private readonly IFileStorageService _fileStorageService;
+        private readonly IHttpContextAccessor _httpContext;
         private readonly string containerName = "people";
 
-        public PersonService(AppDBContext context, IMapper mapper, IFileStorageService fileStorageService)
+        public PersonService(AppDBContext context, IMapper mapper, IFileStorageService fileStorageService, IHttpContextAccessor httpContext)
         {
             _context = context;
             _mapper = mapper;
             _fileStorageService = fileStorageService;
+            _httpContext = httpContext;
         }
 
         public async Task<ServiceResponse<PersonDto>> AddPerson(PersonDtoAdd newItem)
@@ -83,6 +87,20 @@ namespace MoviesAPI.Services
             var response = new ServiceResponse<List<PersonDto>>();
 
             List<Person> people = await _context.People.AsNoTracking().ToListAsync();
+
+            List<PersonDto> personDTOs = _mapper.Map<List<PersonDto>>(people);
+            response.Data = personDTOs;
+
+            return response;
+        }
+
+        public async Task<ServiceResponse<List<PersonDto>>> GetAllPeoplePagination(PaginationDto pagination)
+        {
+            var response = new ServiceResponse<List<PersonDto>>();
+
+            var queryable = _context.People.AsQueryable();
+            await _httpContext.HttpContext.InsertPaginationParametersInResponse(queryable, pagination.RecordsPerPage, queryable.Count(), pagination.Page);
+            var people = await queryable.Paginate(pagination).ToListAsync();
 
             List<PersonDto> personDTOs = _mapper.Map<List<PersonDto>>(people);
             response.Data = personDTOs;

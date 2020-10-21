@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -15,6 +17,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MoviesAPI.Data;
+using MoviesAPI.Helpers;
 using MoviesAPI.Models;
 using MoviesAPI.Services;
 
@@ -33,6 +36,23 @@ namespace MoviesAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            //------Allow Origins------
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+                builder.WithExposedHeaders("totalAmountRecords");
+                builder.WithExposedHeaders("totalAmountPages");
+                builder.WithExposedHeaders("currentPage");
+                builder.WithExposedHeaders("recordsPerPage");
+            }));
+            //------End: Allow Origins------
+
+            //------HealthChecks------
+            services.AddHealthChecks().AddDbContextCheck<AppDBContext>(tags: new[] { "ready" });
+            //------End: HealthChecks------
 
             services.AddAutoMapper(typeof(Startup));
             services.AddDbContext<AppDBContext>(options =>
@@ -73,6 +93,27 @@ namespace MoviesAPI
             //app.UseAuthentication();
 
             app.UseAuthorization();
+
+            //------Allow Origins------
+            app.UseCors("MyPolicy");
+            //------End: Allow Origins------
+
+            //------HealthChecks------
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapHealthChecks("/health/ready", new HealthCheckOptions
+                {
+                    ResponseWriter = HealthCheckResponseWriter.WriteResponseReadiness,
+                    Predicate = (check) => check.Tags.Contains("ready")
+                });
+
+                endpoints.MapHealthChecks("/health/live", new HealthCheckOptions
+                {
+                    ResponseWriter = HealthCheckResponseWriter.WriteResponseLiveness,
+                    Predicate = (check) => !check.Tags.Contains("ready")
+                });
+            });
+            //------End: HealthChecks------
 
             app.UseEndpoints(endpoints =>
             {

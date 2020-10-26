@@ -7,7 +7,7 @@ using System.Linq;
 using System.Net.Mime;
 using System.Threading.Tasks;
 
-namespace MoviesAPI.Services
+namespace MoviesAPI.Area.ApiV1.Services.FileStorageServices
 {
     public class InAppStorageService : IFileStorageService
     {

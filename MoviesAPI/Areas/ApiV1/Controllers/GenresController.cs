@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MoviesAPI.DTOs.GenreDTOs;
-using MoviesAPI.Services;
+using MoviesAPI.Area.ApiV1.DTOs.GenreDTOs;
+using MoviesAPI.Area.ApiV1.Services.GenreServices;
 using System.Threading.Tasks;
 
-namespace MoviesAPI.Controllers
+namespace MoviesAPI.Area.ApiV1.Controllers
 {
     [ApiController]
     [Route("v1/[controller]")]

@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using MoviesAPI.DTOs.GenreDTOs;
-using MoviesAPI.DTOs.MovieDTOs;
-using MoviesAPI.DTOs.PersonDTOs;
-using MoviesAPI.Models;
+using MoviesAPI.Area.ApiV1.DTOs.GenreDTOs;
+using MoviesAPI.Area.ApiV1.DTOs.MovieDTOs;
+using MoviesAPI.Area.ApiV1.DTOs.PersonDTOs;
+using MoviesAPI.Area.ApiV1.Models;
 using System.Collections.Generic;
 
 namespace MoviesAPI

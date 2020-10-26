@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoviesAPI.DTOs.MovieDTOs
+namespace MoviesAPI.Area.ApiV1.DTOs.MovieDTOs
 {
     public class MovieDto
     {

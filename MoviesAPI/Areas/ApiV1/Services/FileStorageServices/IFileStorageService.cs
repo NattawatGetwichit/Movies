@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoviesAPI.Services
+namespace MoviesAPI.Area.ApiV1.Services.FileStorageServices
 {
     public interface IFileStorageService
     {

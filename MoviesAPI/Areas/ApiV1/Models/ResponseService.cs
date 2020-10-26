@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoviesAPI.Models
+namespace MoviesAPI.Area.ApiV1.Models
 {
     public class ServiceResponse<T>
     {

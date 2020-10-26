@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MoviesAPI.Services
+namespace MoviesAPI.Area.ApiV1.Services.HostedServices
 {
     public class WriteToFileHostedService : IHostedService
     {

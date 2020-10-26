@@ -4,10 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using MoviesAPI.Data;
+using MoviesAPI.Area.ApiV1.Data;
 
-namespace MoviesAPI.Migrations
+namespace MoviesAPI.Area.ApiV1.Data.Migrations
 {
     [DbContext(typeof(AppDBContext))]
     [Migration("20201021061046_many2many")]

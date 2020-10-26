@@ -1,26 +1,18 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
-
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using MoviesAPI.Data;
+using MoviesAPI.Area.ApiV1.Data;
+using MoviesAPI.Area.ApiV1.Services.FileStorageServices;
+using MoviesAPI.Area.ApiV1.Services.GenreServices;
+using MoviesAPI.Area.ApiV1.Services.HostedServices;
+using MoviesAPI.Area.ApiV1.Services.MovieServices;
+using MoviesAPI.Area.ApiV1.Services.PersonServices;
 using MoviesAPI.Helpers;
-using MoviesAPI.Models;
-using MoviesAPI.Services;
-using MoviesAPI.Services.MoviesService;
 
 namespace MoviesAPI
 {
@@ -82,7 +74,7 @@ namespace MoviesAPI
 
             app.UseSwagger();
 
-            app.UseSwaggerUI(config => config.SwaggerEndpoint("/swagger/v1/swagger.json", "MoviesAPI"));
+            app.UseSwaggerUI(config => config.SwaggerEndpoint("/swagger/v1/swagger.json", "MoviesAPI v1"));
 
             //app.UseHttpsRedirection();
 

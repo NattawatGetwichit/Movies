@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoviesAPI.DTOs.GenreDTOs
+namespace MoviesAPI.Area.ApiV1.DTOs.GenreDTOs
 {
     public class GenreDto
     {

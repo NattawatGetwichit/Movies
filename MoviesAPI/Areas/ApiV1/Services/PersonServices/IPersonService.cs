@@ -1,13 +1,10 @@
-﻿using MoviesAPI.DTOs;
-using MoviesAPI.DTOs.PersonDTOs;
-using MoviesAPI.Models;
-using System;
+﻿using MoviesAPI.Area.ApiV1.DTOs;
+using MoviesAPI.Area.ApiV1.DTOs.PersonDTOs;
+using MoviesAPI.Area.ApiV1.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace MoviesAPI.Services
+namespace MoviesAPI.Area.ApiV1.Services.PersonServices
 {
     public interface IPersonService
     {

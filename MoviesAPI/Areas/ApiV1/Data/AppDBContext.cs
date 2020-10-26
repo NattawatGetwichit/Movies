@@ -1,12 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MoviesAPI.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MoviesAPI.Area.ApiV1.Models;
 
-namespace MoviesAPI.Data
+namespace MoviesAPI.Area.ApiV1.Data
 {
     public class AppDBContext : DbContext
     {

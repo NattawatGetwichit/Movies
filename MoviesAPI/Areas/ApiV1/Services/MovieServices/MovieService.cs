@@ -1,19 +1,18 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using MoviesAPI.Data;
-using MoviesAPI.DTOs;
-using MoviesAPI.DTOs.MovieDTOs;
+using MoviesAPI.Area.ApiV1.Data;
+using MoviesAPI.Area.ApiV1.DTOs;
+using MoviesAPI.Area.ApiV1.DTOs.MovieDTOs;
+using MoviesAPI.Area.ApiV1.Models;
+using MoviesAPI.Area.ApiV1.Services.FileStorageServices;
 using MoviesAPI.Helpers;
-using MoviesAPI.Models;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace MoviesAPI.Services.MoviesService
+namespace MoviesAPI.Area.ApiV1.Services.MovieServices
 {
     public class MovieService : IMovieService
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MoviesAPI.DTOs.ActorDTOs;
+using MoviesAPI.Area.ApiV1.DTOs.ActorDTOs;
 using MoviesAPI.Helpers;
 using MoviesAPI.Validations;
 using System;
@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using static MoviesAPI.Validations.ContentTypeValidator;
 
-namespace MoviesAPI.DTOs.MovieDTOs
+namespace MoviesAPI.Area.ApiV1.DTOs.MovieDTOs
 {
     public class MovieDtoUpdate
     {

@@ -1,8 +1,5 @@
-﻿using MoviesAPI.DTOs;
-using System;
-using System.Collections.Generic;
+﻿using MoviesAPI.Area.ApiV1.DTOs;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace MoviesAPI.Helpers
 {

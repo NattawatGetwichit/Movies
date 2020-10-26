@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoviesAPI.DTOs.PersonDTOs
+namespace MoviesAPI.Area.ApiV1.DTOs.PersonDTOs
 {
     public class PersonDto
     {

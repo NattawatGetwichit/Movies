@@ -1,13 +1,10 @@
-﻿using MoviesAPI.DTOs;
-using MoviesAPI.DTOs.MovieDTOs;
-using MoviesAPI.Models;
-using System;
+﻿using MoviesAPI.Area.ApiV1.DTOs;
+using MoviesAPI.Area.ApiV1.DTOs.MovieDTOs;
+using MoviesAPI.Area.ApiV1.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace MoviesAPI.Services.MoviesService
+namespace MoviesAPI.Area.ApiV1.Services.MovieServices
 {
     public interface IMovieService
     {

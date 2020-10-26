@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using MoviesAPI.Data;
-using MoviesAPI.DTOs.GenreDTOs;
-using MoviesAPI.Models;
+using MoviesAPI.Area.ApiV1.Data;
+using MoviesAPI.Area.ApiV1.DTOs.GenreDTOs;
+using MoviesAPI.Area.ApiV1.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MoviesAPI.Services
+namespace MoviesAPI.Area.ApiV1.Services.GenreServices
 {
     public class GenreService : IGenreService
     {

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MoviesAPI.Models
+namespace MoviesAPI.Area.ApiV1.Models
 {
     public class Genre
     {

@@ -1,13 +1,9 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MoviesAPI.Data;
-using MoviesAPI.DTOs;
+using MoviesAPI.DTOs.GenreDTOs;
 using MoviesAPI.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MoviesAPI.Services

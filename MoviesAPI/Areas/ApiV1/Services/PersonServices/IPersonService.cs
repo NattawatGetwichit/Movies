@@ -1,4 +1,5 @@
 ﻿using MoviesAPI.DTOs;
+using MoviesAPI.DTOs.PersonDTOs;
 using MoviesAPI.Models;
 using System;
 using System.Collections.Generic;

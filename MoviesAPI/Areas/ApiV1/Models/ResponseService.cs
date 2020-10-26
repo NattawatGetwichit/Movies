@@ -11,5 +11,7 @@ namespace MoviesAPI.Models
         public T Data { get; set; }
         public bool Success { get; set; } = true;
         public string Message { get; set; } = null;
+
+        public DateTime ServerDateTime { get; set; } = DateTime.Now;
     }
 }

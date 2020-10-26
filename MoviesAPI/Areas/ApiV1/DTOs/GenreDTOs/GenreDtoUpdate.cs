@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoviesAPI.DTOs
+namespace MoviesAPI.DTOs.GenreDTOs
 {
-    public class GenreDtoAdd
+    public class GenreDtoUpdate
     {
         [StringLength(40)]
         [FirstLetterUpperCase]

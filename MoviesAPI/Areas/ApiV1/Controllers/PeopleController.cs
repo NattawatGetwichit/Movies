@@ -1,16 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MoviesAPI.DTOs;
+using MoviesAPI.DTOs.PersonDTOs;
 using MoviesAPI.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MoviesAPI.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("v1/[controller]")]
     public class PeopleController : ControllerBase
     {
         private readonly IPersonService _PersonService;

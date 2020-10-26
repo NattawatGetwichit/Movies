@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace MoviesAPI.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("v1/[controller]")]
     public class MovieController : ControllerBase
     {
         private readonly IMovieService _movieService;

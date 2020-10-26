@@ -40,6 +40,8 @@ namespace MoviesAPI.Services.MoviesService
             var response = new ServiceResponse<MovieDto>();
             Movie movie = _mapper.Map<Movie>(newItem);
 
+            //return response;
+
             if (newItem.Poster != null)
             {
                 using (var memoryStream = new MemoryStream())
@@ -52,6 +54,8 @@ namespace MoviesAPI.Services.MoviesService
                         await _fileStorageService.SaveFile(content, extension, containerName, newItem.Poster.ContentType);
                 }
             }
+
+            AnnotateActorsOrder(movie);
 
             _context.Movies.Add(movie);
 
@@ -173,6 +177,17 @@ namespace MoviesAPI.Services.MoviesService
             response.Data = movieDTO;
 
             return response;
+        }
+
+        private static void AnnotateActorsOrder(Movie movie)
+        {
+            if (movie.MoviesActors != null)
+            {
+                for (int i = 0; i < movie.MoviesActors.Count; i++)
+                {
+                    movie.MoviesActors[i].Order = 1;
+                }
+            }
         }
     }
 }

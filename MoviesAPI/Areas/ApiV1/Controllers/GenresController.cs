@@ -1,16 +1,12 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using MoviesAPI.DTOs;
-using MoviesAPI.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using MoviesAPI.DTOs.GenreDTOs;
 using MoviesAPI.Services;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace MoviesAPI.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("v1/[controller]")]
     public class GenresController : ControllerBase
     {
         private readonly IGenreService _genreService;

@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using static MoviesAPI.Validations.ContentTypeValidator;
 
-namespace MoviesAPI.DTOs
+namespace MoviesAPI.DTOs.PersonDTOs
 {
-    public class PersonDtoAdd
+    public class PersonDtoUpdate
     {
         [Required(ErrorMessage = "The field with name {0} is required.")]
         [StringLength(40)]

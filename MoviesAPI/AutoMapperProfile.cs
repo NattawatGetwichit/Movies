@@ -1,12 +1,9 @@
 ﻿using AutoMapper;
-using MoviesAPI.DTOs;
+using MoviesAPI.DTOs.GenreDTOs;
 using MoviesAPI.DTOs.MovieDTOs;
+using MoviesAPI.DTOs.PersonDTOs;
 using MoviesAPI.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MoviesAPI
 {
@@ -21,14 +18,60 @@ namespace MoviesAPI
             CreateMap<Person, PersonDto>().ReverseMap();
             CreateMap<PersonDtoAdd, Person>()
                 .ForMember(x => x.Picture, options => options.Ignore());
+
             CreateMap<PersonDtoUpdate, Person>()
                 .ForMember(x => x.Picture, options => options.Ignore());
 
             CreateMap<Movie, MovieDto>().ReverseMap();
             CreateMap<MovieDtoAdd, Movie>()
-                .ForMember(x => x.Poster, options => options.Ignore());
+                .ForMember(x => x.Poster, options => options.Ignore())
+                .ForMember(x => x.MoviesGenres, options => options.MapFrom(MapMoviesGenresAdd))
+                .ForMember(x => x.MoviesActors, options => options.MapFrom(MapMoviesActorsAdd));
+
             CreateMap<MovieDtoUpdate, Movie>()
-                .ForMember(x => x.Poster, options => options.Ignore());
+                .ForMember(x => x.Poster, options => options.Ignore())
+                .ForMember(x => x.MoviesGenres, options => options.MapFrom(MapMoviesGenresUpdate))
+                .ForMember(x => x.MoviesActors, options => options.MapFrom(MapMoviesActorsUpdate));
+        }
+
+        private List<MoviesGenres> MapMoviesGenresAdd(MovieDtoAdd movieDto, Movie movie)
+        {
+            var result = new List<MoviesGenres>();
+            foreach (var id in movieDto.GernresIds)
+            {
+                result.Add(new MoviesGenres() { GenreId = id });
+            }
+            return result;
+        }
+
+        private List<MoviesActors> MapMoviesActorsAdd(MovieDtoAdd movieDto, Movie movie)
+        {
+            var result = new List<MoviesActors>();
+            foreach (var actor in movieDto.Actors)
+            {
+                result.Add(new MoviesActors() { PersonId = actor.PersonId, Character = actor.Character });
+            }
+            return result;
+        }
+
+        private List<MoviesGenres> MapMoviesGenresUpdate(MovieDtoUpdate movieDto, Movie movie)
+        {
+            var result = new List<MoviesGenres>();
+            foreach (var id in movieDto.GernresIds)
+            {
+                result.Add(new MoviesGenres() { GenreId = id });
+            }
+            return result;
+        }
+
+        private List<MoviesActors> MapMoviesActorsUpdate(MovieDtoUpdate movieDto, Movie movie)
+        {
+            var result = new List<MoviesActors>();
+            foreach (var actor in movieDto.Actors)
+            {
+                result.Add(new MoviesActors() { PersonId = actor.PersonId, Character = actor.Character });
+            }
+            return result;
         }
     }
 }

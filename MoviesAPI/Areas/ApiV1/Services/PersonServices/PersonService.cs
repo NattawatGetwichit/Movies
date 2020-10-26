@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using MoviesAPI.Data;
 using MoviesAPI.DTOs;
+using MoviesAPI.DTOs.PersonDTOs;
 using MoviesAPI.Helpers;
 using MoviesAPI.Models;
 using System;

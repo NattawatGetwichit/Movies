@@ -38,7 +38,7 @@ namespace MoviesAPI.Area.ApiV1.Controllers
         {
             var result = await _movieService.GetMovieById(id);
 
-            if (result.Success == false)
+            if (result.IsSuccess == false)
             {
                 return NotFound(result);
             }
@@ -59,7 +59,7 @@ namespace MoviesAPI.Area.ApiV1.Controllers
         {
             var result = await _movieService.UpdateMovie(id, newItem);
 
-            if (result.Success == false)
+            if (result.IsSuccess == false)
             {
                 return NotFound(result);
             }
@@ -72,7 +72,7 @@ namespace MoviesAPI.Area.ApiV1.Controllers
         {
             var result = await _movieService.DeleteMovie(id);
 
-            if (result.Success == false)
+            if (result.IsSuccess == false)
             {
                 return NotFound(result);
             }

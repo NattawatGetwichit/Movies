@@ -42,7 +42,7 @@ namespace MoviesAPI.Area.ApiV1.Services.GenreServices
 
             if (genre == null)
             {
-                response.Success = false;
+                response.IsSuccess = false;
                 response.Message = $"id = {id} Not found.";
 
                 return response;
@@ -78,7 +78,7 @@ namespace MoviesAPI.Area.ApiV1.Services.GenreServices
 
             if (genre == null)
             {
-                response.Success = false;
+                response.IsSuccess = false;
                 response.Message = $"id = {id} Not found.";
 
                 return response;
@@ -98,7 +98,7 @@ namespace MoviesAPI.Area.ApiV1.Services.GenreServices
 
             if (genre == null)
             {
-                response.Success = false;
+                response.IsSuccess = false;
                 response.Message = $"id = {id} Not found.";
 
                 return response;

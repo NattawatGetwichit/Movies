@@ -70,7 +70,7 @@ namespace MoviesAPI.Area.ApiV1.Services.PersonServices
 
             if (person == null)
             {
-                response.Success = false;
+                response.IsSuccess = false;
                 response.Message = $"id = {id} Not found.";
 
                 return response;
@@ -107,7 +107,6 @@ namespace MoviesAPI.Area.ApiV1.Services.PersonServices
                 .InsertPaginationParametersInResponse(
                 queryable
                 , pagination.RecordsPerPage
-                , queryable.Count()
                 , pagination.Page);
             var people = await queryable.Paginate(pagination).ToListAsync();
 
@@ -125,7 +124,7 @@ namespace MoviesAPI.Area.ApiV1.Services.PersonServices
 
             if (person == null)
             {
-                response.Success = false;
+                response.IsSuccess = false;
                 response.Message = $"id = {id} Not found.";
 
                 return response;
@@ -145,7 +144,7 @@ namespace MoviesAPI.Area.ApiV1.Services.PersonServices
 
             if (person == null)
             {
-                response.Success = false;
+                response.IsSuccess = false;
                 response.Message = $"id = {id} Not found.";
             }
 

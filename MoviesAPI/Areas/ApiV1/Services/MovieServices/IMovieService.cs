@@ -10,7 +10,7 @@ namespace MoviesAPI.Area.ApiV1.Services.MovieServices
     {
         Task<ServiceResponse<List<MovieDto>>> GetAllMovies();
 
-        Task<ServiceResponse<List<MovieDto>>> GetAllMoviesPagination(PaginationDto pagination);
+        Task<ServiceResponseWithPagination<List<MovieDto>>> GetAllMoviesPagination(PaginationDto pagination);
 
         Task<ServiceResponse<MovieDto>> GetMovieById(int id);
 

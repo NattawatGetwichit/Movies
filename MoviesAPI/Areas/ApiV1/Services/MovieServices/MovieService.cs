@@ -74,7 +74,7 @@ namespace MoviesAPI.Area.ApiV1.Services.MovieServices
 
             if (movie == null)
             {
-                response.Success = false;
+                response.IsSuccess = false;
                 response.Message = $"id = {id} Not found.";
 
                 return response;
@@ -92,53 +92,40 @@ namespace MoviesAPI.Area.ApiV1.Services.MovieServices
 
         public async Task<ServiceResponse<List<MovieDto>>> GetAllMovies()
         {
-            var response = new ServiceResponse<List<MovieDto>>();
-
             List<Movie> movies = await _context.Movies.AsNoTracking().ToListAsync();
 
             List<MovieDto> movieDTOs = _mapper.Map<List<MovieDto>>(movies);
-            response.Data = movieDTOs;
 
-            return response;
+            return ResponseResult.Success(movieDTOs);
         }
 
-        public async Task<ServiceResponse<List<MovieDto>>> GetAllMoviesPagination(PaginationDto pagination)
+        public async Task<ServiceResponseWithPagination<List<MovieDto>>> GetAllMoviesPagination(PaginationDto pagination)
         {
-            var response = new ServiceResponse<List<MovieDto>>();
-
             var queryable = _context.Movies.AsQueryable();
-            await _httpContext.HttpContext
+            var paginationResult = await _httpContext.HttpContext
                 .InsertPaginationParametersInResponse(
                 queryable
                 , pagination.RecordsPerPage
-                , queryable.Count()
                 , pagination.Page);
             var movies = await queryable.Paginate(pagination).ToListAsync();
 
             List<MovieDto> movieDTOs = _mapper.Map<List<MovieDto>>(movies);
-            response.Data = movieDTOs;
 
-            return response;
+            return ResponseResultWithPagination.Success(movieDTOs, paginationResult);
         }
 
         public async Task<ServiceResponse<MovieDto>> GetMovieById(int id)
         {
-            var response = new ServiceResponse<MovieDto>();
-
             Movie movie = await _context.Movies.FindAsync(id);
 
             if (movie == null)
             {
-                response.Success = false;
-                response.Message = $"id = {id} Not found.";
-
-                return response;
+                return ResponseResult.Failure<MovieDto>($"id = {id} Not found.");
             }
 
             MovieDto movieDTO = _mapper.Map<MovieDto>(movie);
-            response.Data = movieDTO;
 
-            return response;
+            return ResponseResult.Success(movieDTO);
         }
 
         public async Task<ServiceResponse<MovieDto>> UpdateMovie(int id, MovieDtoUpdate newItem)
@@ -149,7 +136,7 @@ namespace MoviesAPI.Area.ApiV1.Services.MovieServices
 
             if (movie == null)
             {
-                response.Success = false;
+                response.IsSuccess = false;
                 response.Message = $"id = {id} Not found.";
             }
 

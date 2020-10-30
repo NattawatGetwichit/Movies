@@ -13,6 +13,8 @@ using MoviesAPI.Area.ApiV1.Services.HostedServices;
 using MoviesAPI.Area.ApiV1.Services.MovieServices;
 using MoviesAPI.Area.ApiV1.Services.PersonServices;
 using MoviesAPI.Helpers;
+using System;
+using System.IO;
 
 namespace MoviesAPI
 {

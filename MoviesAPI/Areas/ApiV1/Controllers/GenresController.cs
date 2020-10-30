@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using MoviesAPI.Area.ApiV1.DTOs.GenreDTOs;
 using MoviesAPI.Area.ApiV1.Services.GenreServices;
 using System.Threading.Tasks;
@@ -10,10 +11,12 @@ namespace MoviesAPI.Area.ApiV1.Controllers
     public class GenresController : ControllerBase
     {
         private readonly IGenreService _genreService;
+        private readonly ILogger _logger;
 
-        public GenresController(IGenreService genreService)
+        public GenresController(IGenreService genreService, ILogger logger)
         {
             _genreService = genreService;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -27,13 +30,16 @@ namespace MoviesAPI.Area.ApiV1.Controllers
         [HttpGet("{id:int}", Name = "getGenreById")]
         public async Task<IActionResult> GetById(int id)
         {
+            _logger.LogInformation($"Find by genre id : {id}");
             var result = await _genreService.GetGenreById(id);
 
-            if (result.Success == false)
+            if (result.IsSuccess == false)
             {
+                _logger.LogInformation($"Not found.");
                 return NotFound(result);
             }
 
+            _logger.LogInformation($"Found.");
             return Ok(result);
         }
 
@@ -50,7 +56,7 @@ namespace MoviesAPI.Area.ApiV1.Controllers
         {
             var result = await _genreService.UpdateGenre(id, newItem);
 
-            if (result.Success == false)
+            if (result.IsSuccess == false)
             {
                 return NotFound(result);
             }
@@ -63,7 +69,7 @@ namespace MoviesAPI.Area.ApiV1.Controllers
         {
             var result = await _genreService.DeleteGenre(id);
 
-            if (result.Success == false)
+            if (result.IsSuccess == false)
             {
                 return NotFound(result);
             }

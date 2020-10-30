@@ -36,7 +36,6 @@ namespace MoviesAPI.Area.ApiV1.Services.MovieServices
 
         public async Task<ServiceResponse<MovieDto>> AddMovie(MovieDtoAdd newItem)
         {
-            var response = new ServiceResponse<MovieDto>();
             Movie movie = _mapper.Map<Movie>(newItem);
 
             //return response;
@@ -61,33 +60,26 @@ namespace MoviesAPI.Area.ApiV1.Services.MovieServices
             await _context.SaveChangesAsync();
 
             MovieDto movieDTO = _mapper.Map<MovieDto>(movie);
-            response.Data = movieDTO;
 
-            return response;
+            return ResponseResult.Success(movieDTO);
         }
 
         public async Task<ServiceResponse<MovieDto>> DeleteMovie(int id)
         {
-            var response = new ServiceResponse<MovieDto>();
-
             Movie movie = await _context.Movies.FindAsync(id);
 
             if (movie == null)
             {
-                response.IsSuccess = false;
-                response.Message = $"id = {id} Not found.";
-
-                return response;
+                return ResponseResult.Failure<MovieDto>($"id = {id} Not found.");
             }
 
             _context.Movies.Remove(movie);
 
             await _context.SaveChangesAsync();
 
-            MovieDto personDTO = _mapper.Map<MovieDto>(movie);
-            response.Data = personDTO;
+            MovieDto movieDTO = _mapper.Map<MovieDto>(movie);
 
-            return response;
+            return ResponseResult.Success(movieDTO);
         }
 
         public async Task<ServiceResponse<List<MovieDto>>> GetAllMovies()
@@ -130,14 +122,11 @@ namespace MoviesAPI.Area.ApiV1.Services.MovieServices
 
         public async Task<ServiceResponse<MovieDto>> UpdateMovie(int id, MovieDtoUpdate newItem)
         {
-            var response = new ServiceResponse<MovieDto>();
-
             Movie movie = await _context.Movies.FindAsync(id);
 
             if (movie == null)
             {
-                response.IsSuccess = false;
-                response.Message = $"id = {id} Not found.";
+                return ResponseResult.Failure<MovieDto>($"id = {id} Not found.");
             }
 
             movie = _mapper.Map(newItem, movie);
@@ -160,9 +149,8 @@ namespace MoviesAPI.Area.ApiV1.Services.MovieServices
             await _context.SaveChangesAsync();
 
             MovieDto movieDTO = _mapper.Map<MovieDto>(movie);
-            response.Data = movieDTO;
 
-            return response;
+            return ResponseResult.Success(movieDTO);
         }
 
         private static void AnnotateActorsOrder(Movie movie)

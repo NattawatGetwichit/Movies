@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MoviesAPI.Area.ApiV1.Models;
 
-namespace MoviesAPI.Area.ApiV1.Data
+namespace MoviesAPI.Data
 {
     public class AppDBContext : DbContext
     {

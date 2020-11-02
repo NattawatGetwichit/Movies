@@ -29,11 +29,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\ApiV1\Data\" />
     <Folder Include="Areas\ApiV1\Views\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Data\" />
     <Folder Include="Extensions\" />
-    <Folder Include="Areas\ApiV1\Data\Migrations\" />
+    <Folder Include="Data\Migrations\" />
     <Folder Include="Models\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>

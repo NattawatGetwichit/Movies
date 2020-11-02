@@ -23,3 +23,4 @@ System.InvalidOperationException: Unable to resolve service for type 'Microsoft.
 2020-10-30 20:44:21.162 +07:00 [INF] Starting web host
 2020-10-30 20:45:03.208 +07:00 [INF] Starting web host
 2020-10-30 20:45:24.987 +07:00 [INF] Starting web host
+2020-10-30 20:52:23.053 +07:00 [INF] Starting web host

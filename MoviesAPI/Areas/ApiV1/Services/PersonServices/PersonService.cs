@@ -6,6 +6,7 @@ using MoviesAPI.Area.ApiV1.DTOs;
 using MoviesAPI.Area.ApiV1.DTOs.PersonDTOs;
 using MoviesAPI.Area.ApiV1.Models;
 using MoviesAPI.Area.ApiV1.Services.FileStorageServices;
+using MoviesAPI.Data;
 using MoviesAPI.Helpers;
 using System.Collections.Generic;
 using System.IO;

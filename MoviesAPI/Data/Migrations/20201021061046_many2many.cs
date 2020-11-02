@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MoviesAPI.Area.ApiV1.Data.Migrations
+namespace MoviesAPI.Data.Migrations
 {
     public partial class many2many : Migration
     {

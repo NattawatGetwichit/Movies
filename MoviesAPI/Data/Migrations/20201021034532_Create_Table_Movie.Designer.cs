@@ -5,8 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using MoviesAPI.Area.ApiV1.Data;
+using MoviesAPI.Data;
 
-namespace MoviesAPI.Area.ApiV1.Data.Migrations
+namespace MoviesAPI.Data.Migrations
 {
     [DbContext(typeof(AppDBContext))]
     [Migration("20201021034532_Create_Table_Movie")]

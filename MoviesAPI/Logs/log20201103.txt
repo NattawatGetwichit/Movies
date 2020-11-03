@@ -1,0 +1,222 @@
+2020-11-03 09:12:02.236 +07:00 [INF] Starting web host
+2020-11-03 09:17:22.633 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+MovieDtoAdd -> Movie
+MoviesAPI.Area.ApiV1.DTOs.MovieDTOs.MovieDtoAdd -> MoviesAPI.Area.ApiV1.Models.Movie
+
+Type Map configuration:
+MovieDtoAdd -> Movie
+MoviesAPI.Area.ApiV1.DTOs.MovieDTOs.MovieDtoAdd -> MoviesAPI.Area.ApiV1.Models.Movie
+
+Destination Member:
+MoviesGenres
+
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at MoviesAPI.AutoMapperProfile.MapMoviesGenresAdd(MovieDtoAdd movieDto, Movie movie) in C:\Users\mark_\source\repos\Movies\MoviesAPI\AutoMapperProfile.cs:line 40
+   at lambda_method(Closure , Object , Movie , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method(Closure , Object , Movie , ResolutionContext )
+   at MoviesAPI.Area.ApiV1.Services.MovieServices.MovieService.AddMovie(MovieDtoAdd newItem) in C:\Users\mark_\source\repos\Movies\MoviesAPI\Areas\ApiV1\Services\MovieServices\MovieService.cs:line 40
+   at MoviesAPI.Area.ApiV1.Controllers.MovieController.Add(MovieDtoAdd newItem) in C:\Users\mark_\source\repos\Movies\MoviesAPI\Areas\ApiV1\Controllers\MovieController.cs:line 52
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-11-03 09:19:35.918 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+MovieDtoAdd -> Movie
+MoviesAPI.Area.ApiV1.DTOs.MovieDTOs.MovieDtoAdd -> MoviesAPI.Area.ApiV1.Models.Movie
+
+Type Map configuration:
+MovieDtoAdd -> Movie
+MoviesAPI.Area.ApiV1.DTOs.MovieDTOs.MovieDtoAdd -> MoviesAPI.Area.ApiV1.Models.Movie
+
+Destination Member:
+MoviesGenres
+
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at MoviesAPI.AutoMapperProfile.MapMoviesGenresAdd(MovieDtoAdd movieDto, Movie movie) in C:\Users\mark_\source\repos\Movies\MoviesAPI\AutoMapperProfile.cs:line 40
+   at lambda_method(Closure , Object , Movie , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method(Closure , Object , Movie , ResolutionContext )
+   at MoviesAPI.Area.ApiV1.Services.MovieServices.MovieService.AddMovie(MovieDtoAdd newItem) in C:\Users\mark_\source\repos\Movies\MoviesAPI\Areas\ApiV1\Services\MovieServices\MovieService.cs:line 40
+   at MoviesAPI.Area.ApiV1.Controllers.MovieController.Add(MovieDtoAdd newItem) in C:\Users\mark_\source\repos\Movies\MoviesAPI\Areas\ApiV1\Controllers\MovieController.cs:line 52
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-11-03 09:20:25.475 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+MovieDtoAdd -> Movie
+MoviesAPI.Area.ApiV1.DTOs.MovieDTOs.MovieDtoAdd -> MoviesAPI.Area.ApiV1.Models.Movie
+
+Type Map configuration:
+MovieDtoAdd -> Movie
+MoviesAPI.Area.ApiV1.DTOs.MovieDTOs.MovieDtoAdd -> MoviesAPI.Area.ApiV1.Models.Movie
+
+Destination Member:
+MoviesGenres
+
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at MoviesAPI.AutoMapperProfile.MapMoviesGenresAdd(MovieDtoAdd movieDto, Movie movie) in C:\Users\mark_\source\repos\Movies\MoviesAPI\AutoMapperProfile.cs:line 40
+   at lambda_method(Closure , Object , Movie , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method(Closure , Object , Movie , ResolutionContext )
+   at MoviesAPI.Area.ApiV1.Services.MovieServices.MovieService.AddMovie(MovieDtoAdd newItem) in C:\Users\mark_\source\repos\Movies\MoviesAPI\Areas\ApiV1\Services\MovieServices\MovieService.cs:line 40
+   at MoviesAPI.Area.ApiV1.Controllers.MovieController.Add(MovieDtoAdd newItem) in C:\Users\mark_\source\repos\Movies\MoviesAPI\Areas\ApiV1\Controllers\MovieController.cs:line 52
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-11-03 09:27:39.984 +07:00 [INF] Starting web host
+2020-11-03 09:31:46.066 +07:00 [INF] Starting web host
+2020-11-03 09:34:45.838 +07:00 [INF] Starting web host
+2020-11-03 09:35:46.406 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+MovieDtoAdd -> Movie
+MoviesAPI.Area.ApiV1.DTOs.MovieDTOs.MovieDtoAdd -> MoviesAPI.Area.ApiV1.Models.Movie
+
+Type Map configuration:
+MovieDtoAdd -> Movie
+MoviesAPI.Area.ApiV1.DTOs.MovieDTOs.MovieDtoAdd -> MoviesAPI.Area.ApiV1.Models.Movie
+
+Destination Member:
+MoviesActors
+
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at MoviesAPI.AutoMapperProfile.MapMoviesActorsAdd(MovieDtoAdd movieDto, Movie movie) in C:\Users\mark_\source\repos\Movies\MoviesAPI\AutoMapperProfile.cs:line 50
+   at lambda_method(Closure , Object , Movie , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method(Closure , Object , Movie , ResolutionContext )
+   at MoviesAPI.Area.ApiV1.Services.MovieServices.MovieService.AddMovie(MovieDtoAdd newItem) in C:\Users\mark_\source\repos\Movies\MoviesAPI\Areas\ApiV1\Services\MovieServices\MovieService.cs:line 40
+   at MoviesAPI.Area.ApiV1.Controllers.MovieController.Add(MovieDtoAdd newItem) in C:\Users\mark_\source\repos\Movies\MoviesAPI\Areas\ApiV1\Controllers\MovieController.cs:line 52
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-11-03 09:36:32.212 +07:00 [INF] Starting web host
+2020-11-03 09:37:20.779 +07:00 [INF] Starting web host
+2020-11-03 09:42:37.837 +07:00 [INF] Starting web host
+2020-11-03 09:43:43.967 +07:00 [INF] Starting web host
+2020-11-03 09:53:17.213 +07:00 [INF] Starting web host
+2020-11-03 09:57:33.985 +07:00 [INF] Starting web host
+2020-11-03 09:57:49.165 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The entity type 'List<MoviesActors>' was not found. Ensure that the entity type has been added to the model.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.GetOrCreateEntry(Object entity)
+   at Microsoft.EntityFrameworkCore.DbContext.EntryWithoutDetectChanges[TEntity](TEntity entity)
+   at Microsoft.EntityFrameworkCore.DbContext.Remove[TEntity](TEntity entity)
+   at MoviesAPI.Area.ApiV1.Services.MovieServices.MovieService.UpdateMovie(Int32 id, MovieDtoUpdate newItem) in C:\Users\mark_\source\repos\Movies\MoviesAPI\Areas\ApiV1\Services\MovieServices\MovieService.cs:line 150
+   at MoviesAPI.Area.ApiV1.Controllers.MovieController.Update(Int32 id, MovieDtoUpdate newItem) in C:\Users\mark_\source\repos\Movies\MoviesAPI\Areas\ApiV1\Controllers\MovieController.cs:line 60
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-11-03 09:58:23.503 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The entity type 'List<MoviesActors>' was not found. Ensure that the entity type has been added to the model.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.GetOrCreateEntry(Object entity)
+   at Microsoft.EntityFrameworkCore.DbContext.EntryWithoutDetectChanges[TEntity](TEntity entity)
+   at Microsoft.EntityFrameworkCore.DbContext.Remove[TEntity](TEntity entity)
+   at MoviesAPI.Area.ApiV1.Services.MovieServices.MovieService.UpdateMovie(Int32 id, MovieDtoUpdate newItem) in C:\Users\mark_\source\repos\Movies\MoviesAPI\Areas\ApiV1\Services\MovieServices\MovieService.cs:line 150
+   at MoviesAPI.Area.ApiV1.Controllers.MovieController.Update(Int32 id, MovieDtoUpdate newItem) in C:\Users\mark_\source\repos\Movies\MoviesAPI\Areas\ApiV1\Controllers\MovieController.cs:line 60
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-11-03 09:59:09.107 +07:00 [INF] Starting web host
+2020-11-03 10:04:43.774 +07:00 [INF] Starting web host
+2020-11-03 10:06:52.972 +07:00 [INF] Starting web host
+2020-11-03 10:08:44.822 +07:00 [INF] Starting web host
+2020-11-03 10:09:42.170 +07:00 [INF] Starting web host
+2020-11-03 10:09:49.919 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at MoviesAPI.Area.ApiV1.Services.MovieServices.MovieService.AnnotateActorsOrder(Movie movie) in C:\Users\mark_\source\repos\Movies\MoviesAPI\Areas\ApiV1\Services\MovieServices\MovieService.cs:line 176
+   at MoviesAPI.Area.ApiV1.Services.MovieServices.MovieService.UpdateMovie(Int32 id, MovieDtoUpdate newItem) in C:\Users\mark_\source\repos\Movies\MoviesAPI\Areas\ApiV1\Services\MovieServices\MovieService.cs:line 159
+   at MoviesAPI.Area.ApiV1.Controllers.MovieController.Update(Int32 id, MovieDtoUpdate newItem) in C:\Users\mark_\source\repos\Movies\MoviesAPI\Areas\ApiV1\Controllers\MovieController.cs:line 60
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-11-03 10:10:35.996 +07:00 [INF] Starting web host

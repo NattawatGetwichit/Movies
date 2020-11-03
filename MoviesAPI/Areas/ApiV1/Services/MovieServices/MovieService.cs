@@ -39,7 +39,7 @@ namespace MoviesAPI.Area.ApiV1.Services.MovieServices
         {
             Movie movie = _mapper.Map<Movie>(newItem);
 
-            //return response;
+            //return ResponseResult.Success(new MovieDto());
 
             if (newItem.Poster != null)
             {
@@ -145,6 +145,19 @@ namespace MoviesAPI.Area.ApiV1.Services.MovieServices
                 }
             }
 
+            var ma = _context.MoviesActors.Where(x => x.MovieId == movie.Id).ToList();
+
+            _context.MoviesActors.RemoveRange(ma);
+
+            var mg = _context.MoviesGenres.Where(x => x.MovieId == movie.Id).ToList();
+
+            _context.MoviesGenres.RemoveRange(mg);
+
+            //await _context.Database
+            //    .ExecuteSqlInterpolatedAsync($"delete from MoviesActors where MovieId = {movie.Id}; delete from MoviesGenres where MovieId = {movie.Id};");
+
+            AnnotateActorsOrder(movie);
+
             _context.Movies.Update(movie);
 
             await _context.SaveChangesAsync();
@@ -160,7 +173,7 @@ namespace MoviesAPI.Area.ApiV1.Services.MovieServices
             {
                 for (int i = 0; i < movie.MoviesActors.Count; i++)
                 {
-                    movie.MoviesActors[i].Order = 1;
+                    movie.MoviesActors[i].Order = i;
                 }
             }
         }

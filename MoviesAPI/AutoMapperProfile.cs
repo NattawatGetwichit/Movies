@@ -26,7 +26,7 @@ namespace MoviesAPI
             CreateMap<MovieDtoAdd, Movie>()
                 .ForMember(x => x.Poster, options => options.Ignore())
                 .ForMember(x => x.MoviesGenres, options => options.MapFrom(MapMoviesGenresAdd))
-                .ForMember(x => x.MoviesActors, options => options.MapFrom(MapMoviesActorsAdd));
+            .ForMember(x => x.MoviesActors, options => options.MapFrom(MapMoviesActorsAdd));
 
             CreateMap<MovieDtoUpdate, Movie>()
                 .ForMember(x => x.Poster, options => options.Ignore())
@@ -37,7 +37,7 @@ namespace MoviesAPI
         private List<MoviesGenres> MapMoviesGenresAdd(MovieDtoAdd movieDto, Movie movie)
         {
             var result = new List<MoviesGenres>();
-            foreach (var id in movieDto.GernresIds)
+            foreach (var id in movieDto.GenresIds)
             {
                 result.Add(new MoviesGenres() { GenreId = id });
             }
@@ -57,7 +57,7 @@ namespace MoviesAPI
         private List<MoviesGenres> MapMoviesGenresUpdate(MovieDtoUpdate movieDto, Movie movie)
         {
             var result = new List<MoviesGenres>();
-            foreach (var id in movieDto.GernresIds)
+            foreach (var id in movieDto.GenresIds)
             {
                 result.Add(new MoviesGenres() { GenreId = id });
             }

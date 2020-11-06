@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using MoviesAPI.Area.ApiV1.Data;
-using MoviesAPI.Area.ApiV1.DTOs;
-using MoviesAPI.Area.ApiV1.DTOs.PersonDTOs;
-using MoviesAPI.Area.ApiV1.Models;
-using MoviesAPI.Area.ApiV1.Services.FileStorageServices;
+using MoviesAPI.Areas.ApiV1.Data;
+using MoviesAPI.Areas.ApiV1.DTOs;
+using MoviesAPI.Areas.ApiV1.DTOs.PersonDTOs;
+using MoviesAPI.Areas.ApiV1.Models;
+using MoviesAPI.Areas.ApiV1.Services.FileStorageServices;
 using MoviesAPI.Data;
 using MoviesAPI.Helpers;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MoviesAPI.Area.ApiV1.Services.PersonServices
+namespace MoviesAPI.Areas.ApiV1.Services.PersonServices
 {
     public class PersonService : IPersonService
     {

@@ -1,4 +1,4 @@
-﻿using MoviesAPI.Area.ApiV1.Models;
+﻿using MoviesAPI.Areas.ApiV1.Models;
 using MoviesAPI.Areas.ApiV1.DTOs;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoviesAPI.Area.ApiV1.Models
+namespace MoviesAPI.Areas.ApiV1.Models
 {
     public class ServiceResponseWithPagination<T> : ServiceResponse<T>
     {

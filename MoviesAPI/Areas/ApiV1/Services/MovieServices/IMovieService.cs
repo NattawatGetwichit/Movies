@@ -1,23 +1,26 @@
-﻿using MoviesAPI.Area.ApiV1.DTOs;
-using MoviesAPI.Area.ApiV1.DTOs.MovieDTOs;
-using MoviesAPI.Area.ApiV1.Models;
+﻿using MoviesAPI.Areas.ApiV1.DTOs;
+using MoviesAPI.Areas.ApiV1.DTOs.MovieDTOs;
+using MoviesAPI.Areas.ApiV1.Models;
+
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MoviesAPI.Area.ApiV1.Services.MovieServices
+namespace MoviesAPI.Areas.ApiV1.Services.MovieServices
 {
     public interface IMovieService
     {
-        Task<ServiceResponse<List<MovieDto>>> GetAllMovies();
+        Task<ServiceResponse<MovieDtoIndex>> GetAllMovies();
 
         Task<ServiceResponseWithPagination<List<MovieDto>>> GetAllMoviesPagination(PaginationDto pagination);
 
-        Task<ServiceResponse<MovieDto>> GetMovieById(int id);
+        Task<ServiceResponse<MovieDetailDto>> GetMovieById(int id);
 
         Task<ServiceResponse<MovieDto>> AddMovie(MovieDtoAdd newItem);
 
         Task<ServiceResponse<MovieDto>> UpdateMovie(int id, MovieDtoUpdate newItem);
 
         Task<ServiceResponse<MovieDto>> DeleteMovie(int id);
+
+        Task<ServiceResponseWithPagination<List<MovieDto>>> Filter(MovieDtoFilter filter);
     }
 }

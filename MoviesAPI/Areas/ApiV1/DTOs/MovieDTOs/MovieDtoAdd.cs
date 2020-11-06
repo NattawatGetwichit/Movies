@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MoviesAPI.Area.ApiV1.DTOs.ActorDTOs;
+using MoviesAPI.Areas.ApiV1.DTOs.ActorDTOs;
 using MoviesAPI.Helpers;
 using MoviesAPI.Validations;
 using System;
@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using static MoviesAPI.Validations.ContentTypeValidator;
 
-namespace MoviesAPI.Area.ApiV1.DTOs.MovieDTOs
+namespace MoviesAPI.Areas.ApiV1.DTOs.MovieDTOs
 {
     public class MovieDtoAdd
     {
@@ -28,7 +28,7 @@ namespace MoviesAPI.Area.ApiV1.DTOs.MovieDTOs
         [ModelBinder(BinderType = typeof(TypeBinder<List<int>>))]
         public List<int> GenresIds { get; set; }
 
-        [ModelBinder(BinderType = typeof(TypeBinder<List<ActorDto>>))]
-        public List<ActorDto> Actors { get; set; }
+        [ModelBinder(BinderType = typeof(TypeBinder<List<ActorDtoAdd>>))]
+        public List<ActorDtoAdd> Actors { get; set; }
     }
 }

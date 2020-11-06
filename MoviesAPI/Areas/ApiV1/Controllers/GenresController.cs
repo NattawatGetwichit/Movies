@@ -1,22 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using MoviesAPI.Area.ApiV1.DTOs.GenreDTOs;
-using MoviesAPI.Area.ApiV1.Services.GenreServices;
+using MoviesAPI.Areas.ApiV1.DTOs.GenreDTOs;
+using MoviesAPI.Areas.ApiV1.Services.GenreServices;
 using System.Threading.Tasks;
 
-namespace MoviesAPI.Area.ApiV1.Controllers
+namespace MoviesAPI.Areas.ApiV1.Controllers
 {
     [ApiController]
     [Route("v1/[controller]")]
     public class GenresController : ControllerBase
     {
         private readonly IGenreService _genreService;
-        private readonly ILogger _logger;
 
-        public GenresController(IGenreService genreService, ILogger logger)
+        public GenresController(IGenreService genreService)
         {
             _genreService = genreService;
-            _logger = logger;
         }
 
         [HttpGet]
@@ -30,16 +28,13 @@ namespace MoviesAPI.Area.ApiV1.Controllers
         [HttpGet("{id:int}", Name = "getGenreById")]
         public async Task<IActionResult> GetById(int id)
         {
-            _logger.LogInformation($"Find by genre id : {id}");
             var result = await _genreService.GetGenreById(id);
 
             if (result.IsSuccess == false)
             {
-                _logger.LogInformation($"Not found.");
                 return NotFound(result);
             }
 
-            _logger.LogInformation($"Found.");
             return Ok(result);
         }
 

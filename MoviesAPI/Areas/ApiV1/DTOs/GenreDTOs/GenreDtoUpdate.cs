@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoviesAPI.Area.ApiV1.DTOs.GenreDTOs
+namespace MoviesAPI.Areas.ApiV1.DTOs.GenreDTOs
 {
     public class GenreDtoUpdate
     {

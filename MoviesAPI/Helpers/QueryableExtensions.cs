@@ -1,4 +1,4 @@
-﻿using MoviesAPI.Area.ApiV1.DTOs;
+﻿using MoviesAPI.Areas.ApiV1.DTOs;
 using System.Linq;
 
 namespace MoviesAPI.Helpers

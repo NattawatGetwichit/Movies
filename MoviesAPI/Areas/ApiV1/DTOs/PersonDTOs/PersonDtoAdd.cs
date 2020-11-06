@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static MoviesAPI.Validations.ContentTypeValidator;
 
-namespace MoviesAPI.Area.ApiV1.DTOs.PersonDTOs
+namespace MoviesAPI.Areas.ApiV1.DTOs.PersonDTOs
 {
     public class PersonDtoAdd
     {

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using MoviesAPI.Area.ApiV1.Data;
+using MoviesAPI.Areas.ApiV1.Data;
 using MoviesAPI.Data;
 
 namespace MoviesAPI.Data.Migrations

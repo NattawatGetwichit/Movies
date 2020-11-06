@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MoviesAPI.Area.ApiV1.DTOs;
-using MoviesAPI.Area.ApiV1.DTOs.PersonDTOs;
-using MoviesAPI.Area.ApiV1.Services.PersonServices;
+using MoviesAPI.Areas.ApiV1.DTOs;
+using MoviesAPI.Areas.ApiV1.DTOs.PersonDTOs;
+using MoviesAPI.Areas.ApiV1.Services.PersonServices;
 using System.Threading.Tasks;
 
-namespace MoviesAPI.Area.ApiV1.Controllers
+namespace MoviesAPI.Areas.ApiV1.Controllers
 {
     [ApiController]
     [Route("v1/[controller]")]

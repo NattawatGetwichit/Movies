@@ -1,9 +1,9 @@
-﻿using MoviesAPI.Area.ApiV1.DTOs.GenreDTOs;
-using MoviesAPI.Area.ApiV1.Models;
+﻿using MoviesAPI.Areas.ApiV1.DTOs.GenreDTOs;
+using MoviesAPI.Areas.ApiV1.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MoviesAPI.Area.ApiV1.Services.GenreServices
+namespace MoviesAPI.Areas.ApiV1.Services.GenreServices
 {
     public interface IGenreService
     {

@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace MoviesAPI.Areas.ApiV1.DTOs.ActorDTOs
 {
-    public class ActorDto
+    public class ActorDtoAdd
     {
         public int PersonId { get; set; }
-        public string PersonName { get; set; }
         public string Character { get; set; }
     }
 }

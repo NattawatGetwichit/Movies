@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
-using MoviesAPI.Area.ApiV1.DTOs.GenreDTOs;
-using MoviesAPI.Area.ApiV1.DTOs.MovieDTOs;
-using MoviesAPI.Area.ApiV1.DTOs.PersonDTOs;
-using MoviesAPI.Area.ApiV1.Models;
+using MoviesAPI.Areas.ApiV1.DTOs.ActorDTOs;
+using MoviesAPI.Areas.ApiV1.DTOs.GenreDTOs;
+using MoviesAPI.Areas.ApiV1.DTOs.MovieDTOs;
+using MoviesAPI.Areas.ApiV1.DTOs.PersonDTOs;
+using MoviesAPI.Areas.ApiV1.Models;
 using System.Collections.Generic;
 
 namespace MoviesAPI
@@ -32,14 +33,44 @@ namespace MoviesAPI
                 .ForMember(x => x.Poster, options => options.Ignore())
                 .ForMember(x => x.MoviesGenres, options => options.MapFrom(MapMoviesGenresUpdate))
                 .ForMember(x => x.MoviesActors, options => options.MapFrom(MapMoviesActorsUpdate));
+
+            CreateMap<Movie, MovieDetailDto>()
+                .ForMember(x => x.Poster, options => options.Ignore())
+                .ForMember(x => x.Genres, options => options.MapFrom(MapMoviesGenres))
+                .ForMember(x => x.Actors, options => options.MapFrom(MapMoviesActors));
+        }
+
+        private List<GenreDto> MapMoviesGenres(Movie movieDto, MovieDetailDto movieDetailDto)
+        {
+            var result = new List<GenreDto>();
+            foreach (var moviesGenres in movieDto.MoviesGenres)
+            {
+                result.Add(new GenreDto() { Id = moviesGenres.GenreId, Name = moviesGenres.Genre.Name });
+            }
+            return result;
+        }
+
+        private List<ActorDto> MapMoviesActors(Movie movieDto, MovieDetailDto movieDetailDto)
+        {
+            var result = new List<ActorDto>();
+            foreach (var moviesActors in movieDto.MoviesActors)
+            {
+                result.Add(new ActorDto()
+                {
+                    PersonId = moviesActors.PersonId,
+                    PersonName = moviesActors.Person.Name,
+                    Character = moviesActors.Character
+                });
+            }
+            return result;
         }
 
         private List<MoviesGenres> MapMoviesGenresAdd(MovieDtoAdd movieDto, Movie movie)
         {
             var result = new List<MoviesGenres>();
-            foreach (var id in movieDto.GenresIds)
+            foreach (var genreId in movieDto.GenresIds)
             {
-                result.Add(new MoviesGenres() { GenreId = id });
+                result.Add(new MoviesGenres() { GenreId = genreId });
             }
             return result;
         }
@@ -57,9 +88,9 @@ namespace MoviesAPI
         private List<MoviesGenres> MapMoviesGenresUpdate(MovieDtoUpdate movieDto, Movie movie)
         {
             var result = new List<MoviesGenres>();
-            foreach (var id in movieDto.GenresIds)
+            foreach (var genreId in movieDto.GenresIds)
             {
-                result.Add(new MoviesGenres() { GenreId = id });
+                result.Add(new MoviesGenres() { GenreId = genreId });
             }
             return result;
         }
@@ -69,7 +100,11 @@ namespace MoviesAPI
             var result = new List<MoviesActors>();
             foreach (var actor in movieDto.Actors)
             {
-                result.Add(new MoviesActors() { PersonId = actor.PersonId, Character = actor.Character });
+                result.Add(new MoviesActors()
+                {
+                    PersonId = actor.PersonId,
+                    Character = actor.Character
+                });
             }
             return result;
         }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MoviesAPI.Area.ApiV1.Data.Migrations
+namespace MoviesAPI.Areas.ApiV1.Data.Migrations
 {
     public partial class Initial_Database : Migration
     {

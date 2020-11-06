@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MoviesAPI.Area.ApiV1.DTOs;
-using MoviesAPI.Area.ApiV1.DTOs.MovieDTOs;
-using MoviesAPI.Area.ApiV1.Services.MovieServices;
+using MoviesAPI.Areas.ApiV1.DTOs;
+using MoviesAPI.Areas.ApiV1.DTOs.MovieDTOs;
+using MoviesAPI.Areas.ApiV1.Services.MovieServices;
+using MoviesAPI.Areas.ApiV1.DTOs.MovieDTOs;
 using System.Threading.Tasks;
 
-namespace MoviesAPI.Area.ApiV1.Controllers
+namespace MoviesAPI.Areas.ApiV1.Controllers
 {
     [ApiController]
     [Route("v1/[controller]")]
@@ -76,6 +77,14 @@ namespace MoviesAPI.Area.ApiV1.Controllers
             {
                 return NotFound(result);
             }
+
+            return Ok(result);
+        }
+
+        [HttpGet("filter")]
+        public async Task<IActionResult> GetFilter([FromQuery] MovieDtoFilter filter)
+        {
+            var result = await _movieService.Filter(filter);
 
             return Ok(result);
         }

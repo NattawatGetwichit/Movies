@@ -1,4 +1,4 @@
-﻿namespace MoviesAPI.Area.ApiV1.Models
+﻿namespace MoviesAPI.Areas.ApiV1.Models
 {
     public class MoviesGenres
     {

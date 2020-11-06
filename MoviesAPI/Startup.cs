@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MoviesAPI.Area.ApiV1.Services.FileStorageServices;
-using MoviesAPI.Area.ApiV1.Services.GenreServices;
-using MoviesAPI.Area.ApiV1.Services.HostedServices;
-using MoviesAPI.Area.ApiV1.Services.MovieServices;
-using MoviesAPI.Area.ApiV1.Services.PersonServices;
+using MoviesAPI.Areas.ApiV1.Services.FileStorageServices;
+using MoviesAPI.Areas.ApiV1.Services.GenreServices;
+using MoviesAPI.Areas.ApiV1.Services.HostedServices;
+using MoviesAPI.Areas.ApiV1.Services.MovieServices;
+using MoviesAPI.Areas.ApiV1.Services.PersonServices;
 using MoviesAPI.Data;
 using MoviesAPI.Helpers;
 

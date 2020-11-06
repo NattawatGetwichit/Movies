@@ -1,19 +1,20 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using MoviesAPI.Area.ApiV1.Data;
-using MoviesAPI.Area.ApiV1.DTOs;
-using MoviesAPI.Area.ApiV1.DTOs.MovieDTOs;
-using MoviesAPI.Area.ApiV1.Models;
-using MoviesAPI.Area.ApiV1.Services.FileStorageServices;
+using MoviesAPI.Areas.ApiV1.DTOs;
+using MoviesAPI.Areas.ApiV1.DTOs.MovieDTOs;
+using MoviesAPI.Areas.ApiV1.Models;
+using MoviesAPI.Areas.ApiV1.Services.FileStorageServices;
+
 using MoviesAPI.Data;
 using MoviesAPI.Helpers;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MoviesAPI.Area.ApiV1.Services.MovieServices
+namespace MoviesAPI.Areas.ApiV1.Services.MovieServices
 {
     public class MovieService : IMovieService
     {
@@ -83,13 +84,28 @@ namespace MoviesAPI.Area.ApiV1.Services.MovieServices
             return ResponseResult.Success(movieDTO);
         }
 
-        public async Task<ServiceResponse<List<MovieDto>>> GetAllMovies()
+        public async Task<ServiceResponse<MovieDtoIndex>> GetAllMovies()
         {
-            List<Movie> movies = await _context.Movies.AsNoTracking().ToListAsync();
+            var top = 6;
+            var today = new DateTime(2020, 01, 01);
 
-            List<MovieDto> movieDTOs = _mapper.Map<List<MovieDto>>(movies);
+            var upcomingRelease = await _context.Movies
+                .Where(x => x.ReleaseDate > today)
+                .OrderBy(x => x.ReleaseDate)
+                .Take(top)
+                .ToListAsync();
 
-            return ResponseResult.Success(movieDTOs);
+            var inTheaters = await _context.Movies
+                .Where(x => x.InTheaters)
+                .Take(top)
+                .ToListAsync();
+
+            var result = new MovieDtoIndex();
+
+            result.UpcomingReleases = _mapper.Map<List<MovieDto>>(upcomingRelease);
+            result.InTheaters = _mapper.Map<List<MovieDto>>(inTheaters);
+
+            return ResponseResult.Success(result);
         }
 
         public async Task<ServiceResponseWithPagination<List<MovieDto>>> GetAllMoviesPagination(PaginationDto pagination)
@@ -107,16 +123,20 @@ namespace MoviesAPI.Area.ApiV1.Services.MovieServices
             return ResponseResultWithPagination.Success(movieDTOs, paginationResult);
         }
 
-        public async Task<ServiceResponse<MovieDto>> GetMovieById(int id)
+        public async Task<ServiceResponse<MovieDetailDto>> GetMovieById(int id)
         {
-            Movie movie = await _context.Movies.FindAsync(id);
+            Movie movie = await _context.Movies
+                .Include(x => x.MoviesActors)
+                .ThenInclude(x => x.Person)
+                .Include(x => x.MoviesGenres).ThenInclude(x => x.Genre)
+                .FirstOrDefaultAsync(x => x.Id == id);
 
             if (movie == null)
             {
-                return ResponseResult.Failure<MovieDto>($"id = {id} Not found.");
+                return ResponseResult.Failure<MovieDetailDto>($"id = {id} Not found.");
             }
 
-            MovieDto movieDTO = _mapper.Map<MovieDto>(movie);
+            MovieDetailDto movieDTO = _mapper.Map<MovieDetailDto>(movie);
 
             return ResponseResult.Success(movieDTO);
         }
@@ -176,6 +196,44 @@ namespace MoviesAPI.Area.ApiV1.Services.MovieServices
                     movie.MoviesActors[i].Order = i;
                 }
             }
+        }
+
+        public async Task<ServiceResponseWithPagination<List<MovieDto>>> Filter(MovieDtoFilter filter)
+        {
+            var query = _context.Movies.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(filter.Title))
+            {
+                query = query.Where(x => x.Title.Contains(filter.Title));
+            }
+
+            if (filter.UpcomingReleases)
+            {
+                query = query.Where(x => x.InTheaters);
+            }
+
+            if (filter.UpcomingReleases)
+            {
+                var today = new DateTime(2020, 01, 01);
+                query = query.Where(x => x.ReleaseDate > today);
+            }
+
+            if (filter.GenreId != 0)
+            {
+                query = query.Where(x => x.MoviesGenres.Select(y => y.GenreId)
+                .Contains(filter.GenreId));
+            }
+
+            var paginationResult = await _httpContext.HttpContext
+                .InsertPaginationParametersInResponse(
+                query
+                , filter.RecordsPerPage
+                , filter.Page);
+            var movies = await query.Paginate(filter).ToListAsync();
+
+            List<MovieDto> movieDTOs = _mapper.Map<List<MovieDto>>(movies);
+
+            return ResponseResultWithPagination.Success(movieDTOs, paginationResult);
         }
     }
 }

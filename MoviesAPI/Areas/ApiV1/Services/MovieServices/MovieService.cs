@@ -25,19 +25,21 @@ namespace MoviesAPI.Areas.ApiV1.Services.MovieServices
         private readonly IMapper _mapper;
         private readonly IFileStorageService _fileStorageService;
         private readonly IHttpContextAccessor _httpContext;
-        private readonly ILogger _logger;
+        private readonly ILogger<MovieService> _logger;
         private readonly string containerName = "movies";
 
         public MovieService(
             AppDBContext context
             , IMapper mapper
             , IFileStorageService fileStorageService
-            , IHttpContextAccessor httpContext)
+            , IHttpContextAccessor httpContext
+            , ILogger<MovieService> logger)
         {
             _context = context;
             _mapper = mapper;
             _fileStorageService = fileStorageService;
             _httpContext = httpContext;
+            _logger = logger;
         }
 
         public async Task<ServiceResponse<MovieDto>> AddMovie(MovieDtoAdd newItem)
@@ -129,6 +131,8 @@ namespace MoviesAPI.Areas.ApiV1.Services.MovieServices
 
         public async Task<ServiceResponse<MovieDetailDto>> GetMovieById(int id)
         {
+            _logger.LogInformation($"[inService] finding by id: {id}");
+
             Movie movie = await _context.Movies
                 .Include(x => x.MoviesActors)
                 .ThenInclude(x => x.Person)
@@ -137,8 +141,11 @@ namespace MoviesAPI.Areas.ApiV1.Services.MovieServices
 
             if (movie == null)
             {
+                _logger.LogInformation("[inService] Data not found.");
                 return ResponseResult.Failure<MovieDetailDto>($"id = {id} Not found.");
             }
+
+            _logger.LogInformation("[inService] Data found.");
 
             MovieDetailDto movieDTO = _mapper.Map<MovieDetailDto>(movie);
 

@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using MoviesAPI.Areas.ApiV1.DTOs;
 using MoviesAPI.Areas.ApiV1.DTOs.MovieDTOs;
 using MoviesAPI.Areas.ApiV1.Services.MovieServices;
-
-using MoviesAPI.Areas.ApiV1.DTOs.MovieDTOs;
 
 using System.Threading.Tasks;
 

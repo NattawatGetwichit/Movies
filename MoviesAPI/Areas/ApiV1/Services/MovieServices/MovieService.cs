@@ -14,6 +14,9 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
+using System.Linq.Dynamic.Core;
+using Microsoft.Extensions.Logging;
+
 namespace MoviesAPI.Areas.ApiV1.Services.MovieServices
 {
     public class MovieService : IMovieService
@@ -22,6 +25,7 @@ namespace MoviesAPI.Areas.ApiV1.Services.MovieServices
         private readonly IMapper _mapper;
         private readonly IFileStorageService _fileStorageService;
         private readonly IHttpContextAccessor _httpContext;
+        private readonly ILogger _logger;
         private readonly string containerName = "movies";
 
         public MovieService(
@@ -202,6 +206,7 @@ namespace MoviesAPI.Areas.ApiV1.Services.MovieServices
         {
             var query = _context.Movies.AsQueryable();
 
+            //Filter
             if (!string.IsNullOrWhiteSpace(filter.Title))
             {
                 query = query.Where(x => x.Title.Contains(filter.Title));
@@ -222,6 +227,32 @@ namespace MoviesAPI.Areas.ApiV1.Services.MovieServices
             {
                 query = query.Where(x => x.MoviesGenres.Select(y => y.GenreId)
                 .Contains(filter.GenreId));
+            }
+
+            //Ordering
+            if (!string.IsNullOrWhiteSpace(filter.OrderingField))
+            {
+                try
+                {
+                    //nuget system.linq.dynamic.core
+                    query = query.OrderBy($"{filter.OrderingField} {(filter.AscendingOrder ? "ascending" : "descending")}");
+                }
+                catch
+                {
+                    return ResponseResultWithPagination.Failure<List<MovieDto>>("Could not order by field: " + filter.OrderingField);
+                }
+
+                //if (filter.OrderingField == "title")
+                //{
+                //    if (filter.AscendingOrder)
+                //    {
+                //        query = query.OrderBy(x => x.Title);
+                //    }
+                //    else
+                //    {
+                //        query = query.OrderByDescending(x => x.Title);
+                //    }
+                //}
             }
 
             var paginationResult = await _httpContext.HttpContext

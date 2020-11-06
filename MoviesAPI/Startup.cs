@@ -62,6 +62,7 @@ namespace MoviesAPI
             services.AddTransient<IFileStorageService, InAppStorageService>();
 
             services.AddTransient<IHostedService, WriteToFileHostedService>();
+            services.AddTransient<IHostedService, MovieInTheatersService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

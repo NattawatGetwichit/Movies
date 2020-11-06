@@ -2,7 +2,9 @@
 using MoviesAPI.Areas.ApiV1.DTOs;
 using MoviesAPI.Areas.ApiV1.DTOs.MovieDTOs;
 using MoviesAPI.Areas.ApiV1.Services.MovieServices;
+
 using MoviesAPI.Areas.ApiV1.DTOs.MovieDTOs;
+
 using System.Threading.Tasks;
 
 namespace MoviesAPI.Areas.ApiV1.Controllers
@@ -85,6 +87,11 @@ namespace MoviesAPI.Areas.ApiV1.Controllers
         public async Task<IActionResult> GetFilter([FromQuery] MovieDtoFilter filter)
         {
             var result = await _movieService.Filter(filter);
+
+            if (result.IsSuccess == false)
+            {
+                return BadRequest(result);
+            }
 
             return Ok(result);
         }

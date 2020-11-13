@@ -25,7 +25,6 @@ namespace MoviesAPI.Areas.ApiV1.Services.MovieServices
         private readonly AppDBContext _context;
         private readonly IMapper _mapper;
         private readonly IFileStorageService _fileStorageService;
-        private readonly IHttpContextAccessor _httpContext;
         private readonly ILogger<MovieService> _logger;
         private readonly string containerName = "movies";
 
@@ -34,12 +33,11 @@ namespace MoviesAPI.Areas.ApiV1.Services.MovieServices
             , IMapper mapper
             , IFileStorageService fileStorageService
             , IHttpContextAccessor httpContext
-            , ILogger<MovieService> logger)
+            , ILogger<MovieService> logger) : base(httpContext)
         {
             _context = context;
             _mapper = mapper;
             _fileStorageService = fileStorageService;
-            _httpContext = httpContext;
             _logger = logger;
 
             SetNow(new DateTime(2000, 11, 11));
@@ -114,7 +112,7 @@ namespace MoviesAPI.Areas.ApiV1.Services.MovieServices
             result.UpcomingReleases = _mapper.Map<List<MovieDto>>(upcomingRelease);
             result.InTheaters = _mapper.Map<List<MovieDto>>(inTheaters);
 
-            return ResponseResult.Success(result, $"Test DateTime from servicebase: { Now().ToShortDateString() }");
+            return ResponseResult.Success(result, $"DateTime from servicebase: { Now().ToShortDateString() }, Username: { GetUsername() }, Role: { string.Join(",", GetUserRoles()) }");
         }
 
         public async Task<ServiceResponseWithPagination<List<MovieDto>>> GetAllMoviesPagination(PaginationDto pagination)

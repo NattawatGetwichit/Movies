@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MoviesAPI.Areas.ApiV1.DTOs;
 using MoviesAPI.Areas.ApiV1.DTOs.MovieDTOs;
 using MoviesAPI.Areas.ApiV1.Services.MovieServices;
@@ -10,6 +10,7 @@ namespace MoviesAPI.Areas.ApiV1.Controllers
 {
     [ApiController]
     [Route("v1/[controller]")]
+    [Authorize]
     public class MovieController : ControllerBase
     {
         private readonly IMovieService _movieService;

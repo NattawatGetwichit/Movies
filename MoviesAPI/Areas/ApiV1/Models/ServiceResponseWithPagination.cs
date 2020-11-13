@@ -18,18 +18,6 @@ namespace MoviesAPI.Areas.ApiV1.Models
 
     public static class ResponseResultWithPagination
     {
-        public static ServiceResponseWithPagination<T> Success<T>(T data, PaginationResultDto paginationResult)
-        {
-            return new ServiceResponseWithPagination<T>
-            {
-                Data = data,
-                TotalAmountRecords = paginationResult.TotalAmountRecords,
-                TotalAmountPages = paginationResult.TotalAmountPages,
-                CurrentPage = paginationResult.CurrentPage,
-                RecordsPerPage = paginationResult.RecordsPerPage
-            };
-        }
-
         public static ServiceResponseWithPagination<T> Success<T>(T data, PaginationResultDto paginationResult, string message = "")
         {
             return new ServiceResponseWithPagination<T>

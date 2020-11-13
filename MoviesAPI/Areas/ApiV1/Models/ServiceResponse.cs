@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MoviesAPI.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,14 +18,6 @@ namespace MoviesAPI.Areas.ApiV1.Models
 
     public static class ResponseResult
     {
-        public static ServiceResponse<T> Success<T>(T data)
-        {
-            return new ServiceResponse<T>
-            {
-                Data = data
-            };
-        }
-
         public static ServiceResponse<T> Success<T>(T data, string message = "")
         {
             return new ServiceResponse<T>

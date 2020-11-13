@@ -16,10 +16,11 @@ using System.Threading.Tasks;
 
 using System.Linq.Dynamic.Core;
 using Microsoft.Extensions.Logging;
+using MoviesAPI.Services;
 
 namespace MoviesAPI.Areas.ApiV1.Services.MovieServices
 {
-    public class MovieService : IMovieService
+    public class MovieService : ServiceBase, IMovieService
     {
         private readonly AppDBContext _context;
         private readonly IMapper _mapper;
@@ -40,6 +41,8 @@ namespace MoviesAPI.Areas.ApiV1.Services.MovieServices
             _fileStorageService = fileStorageService;
             _httpContext = httpContext;
             _logger = logger;
+
+            SetNow(new DateTime(2000, 11, 11));
         }
 
         public async Task<ServiceResponse<MovieDto>> AddMovie(MovieDtoAdd newItem)
@@ -111,7 +114,7 @@ namespace MoviesAPI.Areas.ApiV1.Services.MovieServices
             result.UpcomingReleases = _mapper.Map<List<MovieDto>>(upcomingRelease);
             result.InTheaters = _mapper.Map<List<MovieDto>>(inTheaters);
 
-            return ResponseResult.Success(result);
+            return ResponseResult.Success(result, $"Test DateTime from servicebase: { Now().ToShortDateString() }");
         }
 
         public async Task<ServiceResponseWithPagination<List<MovieDto>>> GetAllMoviesPagination(PaginationDto pagination)

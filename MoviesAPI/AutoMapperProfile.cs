@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using MoviesAPI.Areas.ApiV1.DTOs.ActorDTOs;
 using MoviesAPI.Areas.ApiV1.DTOs.GenreDTOs;
+using MoviesAPI.Areas.ApiV1.DTOs.IdentityDTOs;
 using MoviesAPI.Areas.ApiV1.DTOs.MovieDTOs;
 using MoviesAPI.Areas.ApiV1.DTOs.PersonDTOs;
 using MoviesAPI.Areas.ApiV1.Models;
@@ -38,6 +40,10 @@ namespace MoviesAPI
                 .ForMember(x => x.Poster, options => options.Ignore())
                 .ForMember(x => x.Genres, options => options.MapFrom(MapMoviesGenres))
                 .ForMember(x => x.Actors, options => options.MapFrom(MapMoviesActors));
+
+            CreateMap<IdentityUser, UserDto>()
+                .ForMember(x => x.EmailAddress, options => options.MapFrom(x => x.Email))
+                .ForMember(x => x.UserId, options => options.MapFrom(x => x.Id));
         }
 
         private List<GenreDto> MapMoviesGenres(Movie movieDto, MovieDetailDto movieDetailDto)

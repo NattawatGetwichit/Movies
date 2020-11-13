@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MoviesAPI.Areas.ApiV1.DTOs.GenreDTOs;
 using MoviesAPI.Areas.ApiV1.Services.GenreServices;
 using System.Threading.Tasks;
@@ -18,6 +18,7 @@ namespace MoviesAPI.Areas.ApiV1.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> Get()
         {
             var result = await _genreService.GetAllGenres();

@@ -34,6 +34,9 @@
   <ItemGroup>
     <Folder Include="Areas\ApiV1\Data\" />
     <Folder Include="Areas\ApiV1\Views\" />
+    <Folder Include="Areas\Security\Data\" />
+    <Folder Include="Areas\Security\Models\" />
+    <Folder Include="Areas\Security\Views\" />
     <Folder Include="Controllers\" />
     <Folder Include="Extensions\" />
     <Folder Include="Data\Migrations\" />

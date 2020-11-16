@@ -37,6 +37,10 @@ namespace MoviesAPI
         {
             services.AddControllers();
 
+            //------Security------
+            services.AddDataProtection();
+            //------End: Security------
+
             //------Allow Origins------
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {

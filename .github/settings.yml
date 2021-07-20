@@ -1,5 +1,5 @@
 repository:
-  delete_branch_on_merge: false
+  delete_branch_on_merge: true
 
 branches:
   - name: master   

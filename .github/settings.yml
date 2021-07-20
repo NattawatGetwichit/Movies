@@ -13,6 +13,6 @@ branches:
         required_approving_review_count: 1
         # Dismiss approved reviews automatically when a new commit is pushed.
         dismiss_stale_reviews: true
-      required_status_checks: null
+      required_status_checks: true
       restrictions: null
       enforce_admins: true

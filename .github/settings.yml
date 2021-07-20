@@ -13,7 +13,7 @@ branches:
       restrictions: null
       enforce_admins: true
     
-  - name: develop
+  - name: *
     # https://developer.github.com/v3/repos/branches/#update-branch-protection
     # Branch Protection settings. Set to null to disable
     protection:

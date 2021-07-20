@@ -5,7 +5,7 @@ repository:
 branches:
   - name: master
     protection:
-      enforce_admins: null
+      enforce_admins: false
     
   - name: *
     protection:

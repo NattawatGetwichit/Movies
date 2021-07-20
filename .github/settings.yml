@@ -19,6 +19,6 @@ branches:
     protection:
       # Required. Require at least one approving review on a pull request, before merging. Set to null to disable.
       required_pull_request_reviews: null
-      required_status_checks: null
+      required_status_checks: true
       restrictions: null
       enforce_admins: true

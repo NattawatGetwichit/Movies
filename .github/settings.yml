@@ -4,21 +4,9 @@ repository:
 
 branches:
   - name: master
-    # https://developer.github.com/v3/repos/branches/#update-branch-protection
-    # Branch Protection settings. Set to null to disable
     protection:
-      # Required. Require at least one approving review on a pull request, before merging. Set to null to disable.
-      required_pull_request_reviews: null
-      required_status_checks: null
-      restrictions: null
-      enforce_admins: true
+      enforce_admins: null
     
   - name: *
-    # https://developer.github.com/v3/repos/branches/#update-branch-protection
-    # Branch Protection settings. Set to null to disable
     protection:
-      # Required. Require at least one approving review on a pull request, before merging. Set to null to disable.
-      required_pull_request_reviews: null
-      required_status_checks: true
-      restrictions: null
       enforce_admins: true

@@ -3,7 +3,8 @@ repository:
 
 
 branches:
-  - name: master
+  - master
+  name: master
     # https://developer.github.com/v3/repos/branches/#update-branch-protection
     # Branch Protection settings. Set to null to disable
     protection:
@@ -17,7 +18,8 @@ branches:
       restrictions: null
       enforce_admins: true
       
-  - name: develop
+  - develop
+  name: develop
     # https://developer.github.com/v3/repos/branches/#update-branch-protection
     # Branch Protection settings. Set to null to disable
     protection:

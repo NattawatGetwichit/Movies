@@ -2,9 +2,8 @@ repository:
   delete_branch_on_merge: true
 
 
-branches:    
-  
-      - name: *
+branches:      
+- name: *
     # https://developer.github.com/v3/repos/branches/#update-branch-protection
     # Branch Protection settings. Set to null to disable
     protection:

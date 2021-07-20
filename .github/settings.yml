@@ -2,11 +2,11 @@ repository:
   delete_branch_on_merge: true
 
 
-branches:      
+branches:
 - name: *
     # https://developer.github.com/v3/repos/branches/#update-branch-protection
     # Branch Protection settings. Set to null to disable
-    protection:
+    protection: true
       # Required. Require at least one approving review on a pull request, before merging. Set to null to disable.
       required_pull_request_reviews:
         # The number of approvals required. (1-6)

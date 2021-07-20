@@ -15,7 +15,7 @@ branches:
         dismiss_stale_reviews: true
       required_status_checks: null
       restrictions: null
-      enforce_admins: false
+      enforce_admins: null
       
    - name: develop
     # https://developer.github.com/v3/repos/branches/#update-branch-protection

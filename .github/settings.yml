@@ -2,11 +2,7 @@ repository:
   delete_branch_on_merge: true
 
 
-branches:
-  - name: master
-    protection:
-      enforce_admins: true
-    
+branches:    
   - name: *
     protection:
       enforce_admins: true
